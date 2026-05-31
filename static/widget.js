@@ -2,8 +2,8 @@
   'use strict';
 
   const CONFIG = {
-    apiUrl: 'https://qservicetruck.up.railway.app/chat',
-    logoUrl: 'https://qservicetruck.up.railway.app/static/logo.png',
+    apiUrl: 'https://q-service-truck-ai-production.up.railway.app/chat',
+    logoUrl: 'https://q-service-truck-ai-production.up.railway.app/static/logo.png',
     brandColor: '#E56B20',
     brandColorHover: '#C45010',
     title: 'Q-Service Truck',
