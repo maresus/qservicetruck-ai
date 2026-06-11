@@ -3,6 +3,7 @@
 
   const CONFIG = {
     apiUrl: 'https://q-service-truck-ai-production.up.railway.app/chat',
+    joinUrl: 'https://q-service-truck-ai-production.up.railway.app/chat/join',
     logoUrl: 'https://q-service-truck-ai-production.up.railway.app/static/logo.png',
     brandColor: '#002B6E',
     brandColorHover: '#001A4E',
@@ -445,6 +446,200 @@
     #kv-scroll-down svg path {
       fill: white !important;
     }
+
+    /* ── JOIN FORM ─────────────────────────────────── */
+    #kv-join-btn-bar {
+      padding: 10px 16px 6px;
+      background: white;
+      border-top: 1px solid #e8f0e0;
+      flex-shrink: 0;
+    }
+
+    #kv-join-btn {
+      width: 100%;
+      background: ${CONFIG.accentColor};
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    #kv-join-btn:hover { background: #5DA030; }
+
+    #kv-join-form-view {
+      display: none;
+      flex-direction: column;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    #kv-join-form-view.kv-visible {
+      display: flex;
+    }
+
+    #kv-join-form-header {
+      background: ${CONFIG.accentColor};
+      color: #fff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    #kv-join-form-header span {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    #kv-join-back {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      opacity: 0.9;
+    }
+
+    #kv-join-back:hover { background: rgba(255,255,255,0.2); }
+
+    #kv-join-form-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 16px;
+      background: #f9f9f9;
+    }
+
+    .kv-field {
+      margin-bottom: 11px;
+    }
+
+    .kv-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 4px;
+    }
+
+    .kv-field label span { color: #e53; }
+
+    .kv-field input,
+    .kv-field textarea {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s;
+      background: #fff;
+      font-family: inherit;
+    }
+
+    .kv-field input:focus,
+    .kv-field textarea:focus {
+      border-color: ${CONFIG.accentColor};
+    }
+
+    .kv-field textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .kv-checkboxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .kv-checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .kv-checkbox-item input[type=checkbox] {
+      width: 16px;
+      height: 16px;
+      accent-color: ${CONFIG.accentColor};
+      flex-shrink: 0;
+    }
+
+    #kv-join-submit {
+      width: 100%;
+      background: ${CONFIG.brandColor};
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.15s;
+    }
+
+    #kv-join-submit:hover { background: ${CONFIG.brandColorHover}; }
+    #kv-join-submit:disabled { background: #aaa; cursor: not-allowed; }
+
+    #kv-join-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      padding: 32px 24px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+
+    #kv-join-success.kv-visible { display: flex; }
+
+    #kv-join-success .kv-success-icon {
+      width: 56px;
+      height: 56px;
+      background: ${CONFIG.accentColor};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    #kv-join-success .kv-success-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    #kv-join-success h4 {
+      color: ${CONFIG.brandColor};
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    #kv-join-success p {
+      color: #666;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0;
+    }
   `;
 
   const icons = {
@@ -585,14 +780,80 @@
         <button class="kv-header-btn" id="kv-widget-minimize" title="Minimiziraj">${icons.minimize}</button>
         <button class="kv-header-btn" id="kv-widget-close" title="Zapri">${icons.close}</button>
       </div>
-      <div id="kv-widget-messages"></div>
-      <div id="kv-scroll-down" title="Scroll dol">${icons.arrowDown}</div>
-      <div id="kv-widget-input-area">
-        <input type="text" id="kv-widget-input" placeholder="${CONFIG.placeholder}">
-        <button id="kv-widget-send">${icons.send}</button>
+
+      <!-- CHAT VIEW -->
+      <div id="kv-chat-view" style="display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0;">
+        <div id="kv-widget-messages"></div>
+        <div id="kv-scroll-down" title="Scroll dol">${icons.arrowDown}</div>
+        <div id="kv-join-btn-bar">
+          <button id="kv-join-btn">
+            <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white;flex-shrink:0;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            PRIDRUŽI SE MREŽI Q-SERVICE TRUCK
+          </button>
+        </div>
+        <div id="kv-widget-input-area">
+          <input type="text" id="kv-widget-input" placeholder="${CONFIG.placeholder}">
+          <button id="kv-widget-send">${icons.send}</button>
+        </div>
+        <div id="kv-widget-disclaimer">Odgovori so informativne narave. Za servis pokličite <a href="tel:+38641413393">+386 41 413 393</a>.</div>
+        <div id="kv-widget-powered">built by: <a href="https://spoznaj-ai.si" target="_blank">spoznaj-ai.si</a></div>
       </div>
-      <div id="kv-widget-disclaimer">Odgovori so informativne narave. Za servis pokličite <a href="tel:+38641413393">+386 41 413 393</a>.</div>
-      <div id="kv-widget-powered">built by: <a href="https://spoznaj-ai.si" target="_blank">spoznaj-ai.si</a></div>
+
+      <!-- JOIN FORM VIEW -->
+      <div id="kv-join-form-view">
+        <div id="kv-join-form-header">
+          <span>Prijava v mrežo Q-Service Truck</span>
+          <button id="kv-join-back">← Nazaj</button>
+        </div>
+        <div id="kv-join-form-scroll">
+          <div class="kv-field">
+            <label>Ime delavnice <span>*</span></label>
+            <input type="text" id="jf-delavnica" placeholder="npr. Servis Novak d.o.o.">
+          </div>
+          <div class="kv-field">
+            <label>Kontaktna oseba <span>*</span></label>
+            <input type="text" id="jf-kontakt" placeholder="Ime in priimek">
+          </div>
+          <div class="kv-field">
+            <label>Telefon <span>*</span></label>
+            <input type="tel" id="jf-telefon" placeholder="+386 ...">
+          </div>
+          <div class="kv-field">
+            <label>E-pošta <span>*</span></label>
+            <input type="email" id="jf-email" placeholder="servis@...">
+          </div>
+          <div class="kv-field">
+            <label>Naslov delavnice <span>*</span></label>
+            <input type="text" id="jf-naslov" placeholder="Ulica, kraj">
+          </div>
+          <div class="kv-field">
+            <label>Davčna številka</label>
+            <input type="text" id="jf-davcna" placeholder="SI ...">
+          </div>
+          <div class="kv-field">
+            <label>Katera vozila servisiramo?</label>
+            <div class="kv-checkboxes">
+              <label class="kv-checkbox-item"><input type="checkbox" value="Tovornjaki"> Tovornjaki</label>
+              <label class="kv-checkbox-item"><input type="checkbox" value="Avtobusi"> Avtobusi</label>
+              <label class="kv-checkbox-item"><input type="checkbox" value="Kmetijska mehanizacija"> Kmetijska meh.</label>
+              <label class="kv-checkbox-item"><input type="checkbox" value="Gradbena mehanizacija"> Gradbena meh.</label>
+            </div>
+          </div>
+          <div class="kv-field">
+            <label>Sporočilo / opombe</label>
+            <textarea id="jf-sporocilo" placeholder="Dodatne informacije, vprašanja..."></textarea>
+          </div>
+          <button id="kv-join-submit">POŠLJI PRIJAVO</button>
+        </div>
+        <div id="kv-join-success">
+          <div class="kv-success-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h4>Prijava uspešno poslana!</h4>
+          <p>Hari Ljutić vas bo kontaktiral v najkrajšem možnem času.<br><br>
+          📞 +386 41 413 393<br>✉ hljutic@intercars.eu</p>
+        </div>
+      </div>
     `;
 
     launcher.appendChild(bubble);
@@ -611,6 +872,9 @@
     document.getElementById('kv-widget-input').onkeypress = function(e) {
       if (e.key === 'Enter') sendMessage();
     };
+    document.getElementById('kv-join-btn').onclick = openJoinForm;
+    document.getElementById('kv-join-back').onclick = closeJoinForm;
+    document.getElementById('kv-join-submit').onclick = submitJoinForm;
 
     document.getElementById('kv-widget-input').addEventListener('focus', function() {
       var msgs = document.getElementById('kv-widget-messages');
@@ -871,6 +1135,66 @@
 
     sendBtn.disabled = false;
     input.focus();
+  }
+
+  function openJoinForm() {
+    document.getElementById('kv-chat-view').style.display = 'none';
+    document.getElementById('kv-join-form-view').classList.add('kv-visible');
+    document.getElementById('kv-join-success').classList.remove('kv-visible');
+    document.getElementById('kv-join-form-scroll').style.display = 'block';
+  }
+
+  function closeJoinForm() {
+    document.getElementById('kv-chat-view').style.display = 'flex';
+    document.getElementById('kv-join-form-view').classList.remove('kv-visible');
+  }
+
+  async function submitJoinForm() {
+    var delavnica = document.getElementById('jf-delavnica').value.trim();
+    var kontakt = document.getElementById('jf-kontakt').value.trim();
+    var telefon = document.getElementById('jf-telefon').value.trim();
+    var email = document.getElementById('jf-email').value.trim();
+    var naslov = document.getElementById('jf-naslov').value.trim();
+
+    if (!delavnica || !kontakt || !telefon || !email || !naslov) {
+      alert('Prosimo, izpolnite vsa obvezna polja (*).');
+      return;
+    }
+
+    var vozila = [];
+    document.querySelectorAll('.kv-checkboxes input[type=checkbox]:checked').forEach(function(cb) {
+      vozila.push(cb.value);
+    });
+
+    var payload = {
+      delavnica: delavnica,
+      kontakt: kontakt,
+      telefon: telefon,
+      email: email,
+      naslov: naslov,
+      davcna: document.getElementById('jf-davcna').value.trim() || null,
+      vozila: vozila,
+      sporocilo: document.getElementById('jf-sporocilo').value.trim() || null
+    };
+
+    var btn = document.getElementById('kv-join-submit');
+    btn.disabled = true;
+    btn.textContent = 'Pošiljam...';
+
+    try {
+      var res = await fetch(CONFIG.joinUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('server error');
+      document.getElementById('kv-join-form-scroll').style.display = 'none';
+      document.getElementById('kv-join-success').classList.add('kv-visible');
+    } catch (e) {
+      alert('Napaka pri pošiljanju. Pokličite: +386 41 413 393');
+      btn.disabled = false;
+      btn.textContent = 'POŠLJI PRIJAVO';
+    }
   }
 
   function initWidget() {
