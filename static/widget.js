@@ -4,8 +4,9 @@
   const CONFIG = {
     apiUrl: 'https://q-service-truck-ai-production.up.railway.app/chat',
     logoUrl: 'https://q-service-truck-ai-production.up.railway.app/static/logo.png',
-    brandColor: '#E56B20',
-    brandColorHover: '#C45010',
+    brandColor: '#002B6E',
+    brandColorHover: '#001A4E',
+    accentColor: '#7DC242',
     title: 'Q-Service Truck',
     subtitle: 'Vaš virtualni asistent',
     placeholder: 'Vprašajte o servisu, delavnicah...',
@@ -202,7 +203,7 @@
     }
 
     #kv-widget-header {
-      background: linear-gradient(135deg, #E56B20 0%, #C45010 100%);
+      background: linear-gradient(135deg, #002B6E 0%, #001A4E 100%);
       color: #ffffff;
       padding: 16px 20px;
       display: flex;
@@ -497,7 +498,7 @@
     var cardStyle = [
       'display:block',
       'background:#ffffff',
-      'color:#E56B20',
+      'color:#002B6E',
       'font-size:14px',
       'font-family:-apple-system,BlinkMacSystemFont,sans-serif',
       'font-weight:600',
@@ -505,7 +506,7 @@
       'border-radius:18px 18px 4px 18px',
       'box-shadow:0 2px 12px rgba(0,0,0,0.13)',
       'cursor:pointer',
-      'border:1px solid rgba(229,107,32,0.18)',
+      'border:1px solid rgba(0,43,110,0.18)',
       'max-width:240px',
       'text-align:right',
       'touch-action:manipulation',
@@ -517,8 +518,8 @@
     var closeStyle = [
       'display:block',
       'background:#fff',
-      'color:#E56B20',
-      'border:1px solid rgba(229,107,32,0.2)',
+      'color:#002B6E',
+      'border:1px solid rgba(0,43,110,0.2)',
       'border-radius:50%',
       'width:24px',
       'height:24px',
@@ -813,13 +814,13 @@
     escaped = escaped.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
     escaped = escaped.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-      '<a href="$2" target="_blank" rel="noopener" style="color:#E56B20;text-decoration:underline;">$1</a>');
+      '<a href="$2" target="_blank" rel="noopener" style="color:#002B6E;text-decoration:underline;">$1</a>');
 
     escaped = escaped.replace(/(?<!=["'])(https?:\/\/[^\s<>"')\]]+)/g,
-      '<a href="$1" target="_blank" rel="noopener" style="color:#E56B20;text-decoration:underline;">$1</a>');
+      '<a href="$1" target="_blank" rel="noopener" style="color:#002B6E;text-decoration:underline;">$1</a>');
 
     escaped = escaped.replace(/(?<![/"'=])(www\.[a-zA-Z0-9][^\s<>"')\]]+)/g,
-      '<a href="https://$1" target="_blank" rel="noopener" style="color:#E56B20;text-decoration:underline;">$1</a>');
+      '<a href="https://$1" target="_blank" rel="noopener" style="color:#002B6E;text-decoration:underline;">$1</a>');
 
     escaped = escaped.replace(/((?:^|\n)- [^\n]+)+/g, function(block) {
       var items = block.trim().split(/\n/).map(function(line) {
