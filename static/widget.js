@@ -196,10 +196,6 @@
         font-size: 16px !important;
       }
 
-      #kv-scroll-down {
-        bottom: 90px;
-      }
-
       #kv-widget-minimize { display: none !important; }
     }
 
@@ -273,6 +269,7 @@
       overflow-y: auto;
       padding: 16px;
       background: #f9f7f5;
+      position: relative;
     }
 
     .kv-message {
@@ -417,10 +414,12 @@
     }
 
     #kv-scroll-down {
-      position: absolute;
-      bottom: 130px;
+      position: sticky;
+      bottom: 8px;
       left: 50%;
       transform: translateX(-50%);
+      margin-left: auto;
+      margin-right: auto;
       width: 36px;
       height: 36px;
       background: ${CONFIG.brandColor};
@@ -783,8 +782,9 @@
 
       <!-- CHAT VIEW -->
       <div id="kv-chat-view" style="display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0;">
-        <div id="kv-widget-messages"></div>
-        <div id="kv-scroll-down" title="Scroll dol">${icons.arrowDown}</div>
+        <div id="kv-widget-messages">
+          <div id="kv-scroll-down" title="Scroll dol">${icons.arrowDown}</div>
+        </div>
         <div id="kv-join-btn-bar">
           <button id="kv-join-btn">
             <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white;flex-shrink:0;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
