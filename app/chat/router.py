@@ -19,7 +19,7 @@ _conversations: list[dict] = []
 _join_requests: list[dict] = []
 _MAX_STORED = 5000
 
-ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "hljutic@intercars.eu")
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "")
 SMTP_HOST = os.getenv("SMTP_HOST", "")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 SMTP_USER = os.getenv("SMTP_USER", "")
@@ -161,8 +161,7 @@ async def join_network(payload: JoinRequest):
       <div style="background:#002B6E;color:#fff;padding:16px;border-radius:8px;margin:20px 0;">
         <b>Kontakt za vprašanja:</b><br>
         Hari Ljutić — Manager Q-Service Truck Slovenija<br>
-        📞 +386 41 413 393<br>
-        ✉ hljutic@intercars.eu
+        📞 +386 41 413 393
       </div>
       <p style="color:#999;font-size:12px;">Q-Service Truck · Šmartinska cesta 52, 1000 Ljubljana</p>
     </div>

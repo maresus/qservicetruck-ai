@@ -851,7 +851,7 @@
           </div>
           <h4>Prijava uspešno poslana!</h4>
           <p>Hari Ljutić vas bo kontaktiral v najkrajšem možnem času.<br><br>
-          📞 +386 41 413 393<br>✉ hljutic@intercars.eu</p>
+          📞 +386 41 413 393</p>
         </div>
       </div>
     `;
